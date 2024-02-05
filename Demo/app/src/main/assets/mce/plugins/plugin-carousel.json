@@ -1,0 +1,8 @@
+{
+  "notification-types": [
+    {
+      "name": "carousel",
+      "class": "co.acoustic.mobile.push.sdk.plugin.carousel.CarouselNotificationType"
+    }
+  ]
+}

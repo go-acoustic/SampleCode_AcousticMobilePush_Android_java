@@ -1,0 +1,8 @@
+{
+  "notification-actions": [
+    {
+      "type": "sample",
+      "class": "co.acoustic.mobile.push.samples.android.plugin.ExampleAction"
+    }
+  ]
+}

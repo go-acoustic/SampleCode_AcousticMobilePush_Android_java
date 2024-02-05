@@ -1,0 +1,125 @@
+apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+apply plugin: "checkstyle"
+
+android {
+    compileSdk project.ext.compileSdkVersion
+
+    defaultConfig {
+        namespace 'co.acoustic.mobile.push.samples.android'
+
+        applicationId "co.acoustic.mobile.push.samples.android"
+        minSdkVersion project.ext.minSdkVersion
+        targetSdkVersion project.ext.targetSdkVersion
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        // The following argument makes the Android Test Orchestrator run its
+        // "pm clear" command after each test invocation. This command ensures
+        // that the app's state is completely cleared between tests.
+        testInstrumentationRunnerArguments clearPackageData: "true"
+        multiDexEnabled true
+
+        splits {
+            abi {
+                enable true
+                reset()
+                include "x86", "x86_64", "arm64-v8a"
+                universalApk true
+            }
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    buildTypes {
+        debug {
+            debuggable true
+            testCoverageEnabled true
+            multiDexKeepProguard file("proguard-multidex-rules.pro")
+        }
+        release {
+            testCoverageEnabled false
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    testOptions {
+        animationsDisabled true
+
+        unitTests {
+            includeAndroidResources = true
+        }
+    }
+
+    androidResources {
+        additionalParameters '--no-version-vectors'
+    }
+
+    lint {
+        abortOnError false
+    }
+}
+
+task checkstyle(type: Checkstyle, group: "verification") {
+    source "src"
+    include "**/*.java"
+    exclude "**/gen/**"
+    exclude "**/R.java"
+    exclude "**/BuildConfig.java"
+
+    configFile file("config/checkstyle/checkstyle.xml")
+    configProperties = ["suppressionFile": file("config/checkstyle/checkstyle_suppressions.xml")]
+
+    // empty classpath
+    classpath = files()
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar', '*.aar'])
+    implementation project(':plugin-example')
+    implementation "io.github.acoustic-analytics:acoustic-mobile-push-android-calendar:+"
+    implementation "io.github.acoustic-analytics:acoustic-mobile-push-android-carousel:+"
+    implementation "io.github.acoustic-analytics:acoustic-mobile-push-android-displayweb:+"
+    implementation "io.github.acoustic-analytics:acoustic-mobile-push-android-inapp:+"
+    implementation "io.github.acoustic-analytics:acoustic-mobile-push-android-inbox:+"
+    implementation "io.github.acoustic-analytics:acoustic-mobile-push-android-sdk:+"
+    implementation "io.github.acoustic-analytics:acoustic-mobile-push-android-snooze:+"
+
+    implementation "androidx.legacy:legacy-support-v4:" + project.ext.androidxLegacyLibVersion
+    implementation "androidx.appcompat:appcompat:" + project.ext.androidxLibVersion
+    implementation "androidx.annotation:annotation:" + project.ext.androidxAnnotationVersion
+
+    implementation "com.google.android.gms:play-services-base:" + project.ext.playServicesBaseVersion
+    implementation "com.google.android.gms:play-services-location:" + project.ext.playServicesLocationVersion
+    implementation "com.google.android.gms:play-services-maps:" + project.ext.playServicesMapsVersion
+
+    implementation "com.google.firebase:firebase-messaging:" + project.ext.firebaseMessagingVersion
+
+    // Play install referer
+    implementation "com.android.installreferrer:installreferrer:"  + project.ext.playServicesInstallreferrerVersion
+
+    implementation "com.google.guava:guava:" + project.guavaVersion
+    implementation "com.google.guava:listenablefuture:9999.0-empty-to-avoid-conflict-with-guava"
+    implementation "com.github.bumptech.glide:glide:" + project.glideVersion
+    implementation "androidx.test.espresso:espresso-idling-resource:" + project.ext.espressoVersion
+
+    // Dependencies for local unit tests
+    testImplementation "org.mockito:mockito-all:" + project.ext.mockitoVersion
+    testImplementation "org.hamcrest:hamcrest-all:" + project.ext.hamcrestVersion
+    testImplementation "org.powermock:powermock-module-junit4:" + project.ext.powerMockito
+    testImplementation "org.powermock:powermock-api-mockito:" + project.ext.powerMockito
+
+    // Android Testing Support Library's runner and rules
+    androidTestImplementation "androidx.test:runner:" + project.ext.androidxTestRunnerVersion
+    androidTestImplementation "androidx.test:rules:" + project.ext.androidxTestRulesVersion
+    androidTestImplementation "androidx.test.ext:junit:" + project.ext.androidxTestJunitVersion
+    androidTestImplementation "androidx.test:core:" + project.ext.androidxTestCoreVersion
+    androidTestImplementation 'org.mockito:mockito-android:' + project.ext.mockitoAndroid
+}
+
+apply plugin: 'com.google.gms.google-services'

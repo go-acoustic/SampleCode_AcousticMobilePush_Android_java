@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+Copyright © 2011, 2019 Acoustic, L.P. All rights reserved.
+
+NOTICE: This file contains material that is confidential and proprietary to
+Acoustic, L.P. and/or other developers. No license is granted under any intellectual or
+industrial property rights of Acoustic, L.P. except as may be provided in an agreement with
+Acoustic, L.P. Any unauthorized copying or distribution of content from this file is
+prohibited.  
+  -->
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/action_bar_rl"
+    android:layout_width="match_parent"
+    android:layout_height="45dp">
+
+    <ImageView
+        android:id="@+id/share_button"
+        android:layout_width="50dp"
+        android:layout_height="30dp"
+        android:layout_alignParentRight="true"
+        android:layout_centerInParent="true"
+        android:layout_marginRight="10dp"
+        android:background="#00000000"
+        android:scaleType="centerInside"
+        android:src="@drawable/btn_share" 
+        android:visibility="gone"/>
+
+    <ImageView
+        android:id="@+id/map_button"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_alignParentRight="true"
+        android:layout_centerInParent="true"
+        android:layout_marginRight="65dp"
+        android:background="#00000000"
+        android:scaleType="centerInside"
+        android:src="@drawable/btn_map"
+        android:visibility="gone" />
+
+    <ImageView
+        android:id="@+id/actionbar_logo"
+        android:layout_width="60dp"
+        android:layout_height="40dp"
+        android:layout_alignParentLeft="true"
+        android:layout_centerInParent="true"
+        android:layout_marginLeft="20dp"
+        android:src="@drawable/actionbar_logo" />
+
+</RelativeLayout>

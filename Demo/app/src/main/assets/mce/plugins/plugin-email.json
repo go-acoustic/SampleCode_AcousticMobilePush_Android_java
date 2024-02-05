@@ -1,0 +1,8 @@
+{
+  "notification-actions": [
+    {
+      "type": "sendEmail",
+      "class": "co.acoustic.mobile.push.samples.android.EmailNotificationAction"
+    }
+  ]
+}

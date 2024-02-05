@@ -1,0 +1,6 @@
+{
+  "message-processors": [{
+    "name": "inAppMessages",
+    "class": "co.acoustic.mobile.push.sdk.plugin.inapp.InAppMessageProcessor"
+  }]
+}
