@@ -3,7 +3,7 @@ This project will use beta version of the libraries.
 
 ## Run Sample Application
 ### Create a google-services.json
-- Get it from Google.
+- Get it from Google at https://firebase.google.com/docs/android/setup#add-config-file.
 - Add [google-services.json](https://firebase.google.com/docs/android/setup#add-config-file) to `SampleCode_AcousticMobilePush_Android_java/Demo/app/` directory.
   
 ### Update MceConfig.json
