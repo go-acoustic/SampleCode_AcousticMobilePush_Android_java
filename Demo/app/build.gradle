@@ -82,13 +82,13 @@ task checkstyle(type: Checkstyle, group: "verification") {
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar', '*.aar'])
     implementation project(':plugin-example')
-    implementation "io.github.acoustic-analytics:acoustic-mobile-push-android-calendar:+"
-    implementation "io.github.acoustic-analytics:acoustic-mobile-push-android-carousel:+"
-    implementation "io.github.acoustic-analytics:acoustic-mobile-push-android-displayweb:+"
-    implementation "io.github.acoustic-analytics:acoustic-mobile-push-android-inapp:+"
-    implementation "io.github.acoustic-analytics:acoustic-mobile-push-android-inbox:+"
-    implementation "io.github.acoustic-analytics:acoustic-mobile-push-android-sdk:+"
-    implementation "io.github.acoustic-analytics:acoustic-mobile-push-android-snooze:+"
+    implementation "io.github.go-acoustic:acoustic-mobile-push-android-calendar:+"
+    implementation "io.github.go-acoustic:acoustic-mobile-push-android-carousel:+"
+    implementation "io.github.go-acoustic:acoustic-mobile-push-android-displayweb:+"
+    implementation "io.github.go-acoustic:acoustic-mobile-push-android-inapp:+"
+    implementation "io.github.go-acoustic:acoustic-mobile-push-android-inbox:+"
+    implementation "io.github.go-acoustic:acoustic-mobile-push-android-sdk:+"
+    implementation "io.github.go-acoustic:acoustic-mobile-push-android-snooze:+"
 
     implementation "androidx.legacy:legacy-support-v4:" + project.ext.androidxLegacyLibVersion
     implementation "androidx.appcompat:appcompat:" + project.ext.androidxLibVersion
