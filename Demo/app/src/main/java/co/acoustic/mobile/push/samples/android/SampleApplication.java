@@ -91,7 +91,7 @@ public class SampleApplication extends MceApplication {
 
             mceSdkConfiguration.setMetricTimeInterval(20);
             mceSdkConfiguration.setLogFile(false);
-            mceSdkConfiguration.setLogLevel(Logger.LogLevel.error);
+            mceSdkConfiguration.setLogLevel(Logger.LogLevel.ERROR);
             mceSdkConfiguration.setLogIterations(1);
             mceSdkConfiguration.setLogIterationDurationInHours(0);
             mceSdkConfiguration.setLogBufferSize(10);

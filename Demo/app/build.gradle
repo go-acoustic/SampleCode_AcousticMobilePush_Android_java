@@ -120,6 +120,9 @@ dependencies {
     androidTestImplementation "androidx.test.ext:junit:" + project.ext.androidxTestJunitVersion
     androidTestImplementation "androidx.test:core:" + project.ext.androidxTestCoreVersion
     androidTestImplementation 'org.mockito:mockito-android:' + project.ext.mockitoAndroid
+
+    // Used for security
+    implementation "androidx.security:security-crypto:" + project.ext.securityCryptoVersion
 }
 
 apply plugin: 'com.google.gms.google-services'
