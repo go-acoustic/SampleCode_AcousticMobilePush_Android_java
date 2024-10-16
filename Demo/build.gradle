@@ -11,6 +11,7 @@ buildscript {
             url "https://maven.google.com"
             name 'Google'
         }
+        maven { url "https://s01.oss.sonatype.org/content/repositories/releases" }
     }
 
     dependencies {
@@ -75,5 +76,8 @@ allprojects {
 
         // This version supports 21 minimal
         securityCryptoVersion = "1.1.0-alpha06"
+
+        // Current version of sdk
+        mceVersion = "3.9.31"
     }
 }
