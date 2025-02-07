@@ -73,11 +73,11 @@ public class SampleApplication extends MceApplication {
     }
 
     @Override
-    protected MceSdkConfiguration getMceSdkConfiguration() {
+    public MceSdkConfiguration getMceSdkConfiguration() {
         if(READ_CONFIG_FROM_ASSETS) {
             return null;
         } else {
-            MceSdkConfiguration mceSdkConfiguration = new MceSdkConfiguration("YOUR_APP_KEY");
+            MceSdkConfiguration mceSdkConfiguration = new MceSdkConfiguration("gc6ttBWiID");
             mceSdkConfiguration.setBaseUrl("https://mobile-sdk-lib-ca-1.brilliantcollector.com");
             mceSdkConfiguration.setAutoInitialize(true);
             mceSdkConfiguration.setAutoReinitialize(true);
