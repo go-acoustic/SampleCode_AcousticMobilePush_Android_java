@@ -20,7 +20,7 @@ dependencyResolutionManagement {
             url "https://maven.google.com"
             name 'Google'
         }
-        maven { url "https://s01.oss.sonatype.org/content/repositories/staging" }
+        maven { url "https://s01.oss.sonatype.org/content/repositories/releases" }
     }
 }
 rootProject.name = "Demo"
