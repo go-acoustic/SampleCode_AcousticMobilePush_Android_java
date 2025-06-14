@@ -78,6 +78,6 @@ allprojects {
         securityCryptoVersion = "1.1.0-alpha06"
 
         // Current version of sdk
-        mceVersion = "3.10.76"
+        mceVersion = "3.10.77"
     }
 }
