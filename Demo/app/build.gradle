@@ -3,53 +3,55 @@ apply plugin: 'kotlin-android'
 apply plugin: "checkstyle"
 
 android {
-    compileSdk project.ext.compileSdkVersion
+    compileSdkVersion = project.ext.compileSdkVersion
 
     defaultConfig {
-        namespace 'co.acoustic.mobile.push.samples.android'
+        namespace = 'co.acoustic.mobile.push.samples.android'
 
-        applicationId "co.acoustic.mobile.push.samples.android"
-        minSdkVersion project.ext.minSdkVersion
-        targetSdkVersion project.ext.targetSdkVersion
-        versionCode 1
-        versionName "1.0"
-        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        applicationId = "co.acoustic.mobile.push.samples.android"
+        minSdkVersion = project.ext.minSdkVersion
+        targetSdkVersion = project.ext.targetSdkVersion
+        versionCode = 1
+        versionName = "1.0"
+        testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         // The following argument makes the Android Test Orchestrator run its
         // "pm clear" command after each test invocation. This command ensures
         // that the app's state is completely cleared between tests.
         testInstrumentationRunnerArguments clearPackageData: "true"
-        multiDexEnabled true
+        multiDexEnabled = true
 
         splits {
             abi {
-                enable true
+                enable = true
                 reset()
                 include "x86", "x86_64", "arm64-v8a"
-                universalApk true
+                universalApk = true
             }
         }
     }
 
     compileOptions {
-        sourceCompatibility JavaVersion.VERSION_1_8
-        targetCompatibility JavaVersion.VERSION_1_8
+        sourceCompatibility = JavaVersion.VERSION_17
+        targetCompatibility = JavaVersion.VERSION_17
     }
 
     buildTypes {
         debug {
-            debuggable true
-            testCoverageEnabled true
-            multiDexKeepProguard file("proguard-multidex-rules.pro")
+            debuggable = true
+            multiDexKeepProguard = file("proguard-multidex-rules.pro")
+            enableUnitTestCoverage = true
+            enableAndroidTestCoverage = true
         }
         release {
-            testCoverageEnabled false
-            minifyEnabled false
-            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            minifyEnabled = false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            enableUnitTestCoverage = false
+            enableAndroidTestCoverage = false
         }
     }
 
     testOptions {
-        animationsDisabled true
+        animationsDisabled = true
 
         unitTests {
             includeAndroidResources = true
@@ -61,18 +63,18 @@ android {
     }
 
     lint {
-        abortOnError false
+        abortOnError = false
     }
 }
 
-task checkstyle(type: Checkstyle, group: "verification") {
+tasks.register('checkstyle', Checkstyle) {
     source "src"
     include "**/*.java"
     exclude "**/gen/**"
     exclude "**/R.java"
     exclude "**/BuildConfig.java"
 
-    configFile file("config/checkstyle/checkstyle.xml")
+    configFile = file("config/checkstyle/checkstyle.xml")
     configProperties = ["suppressionFile": file("config/checkstyle/checkstyle_suppressions.xml")]
 
     // empty classpath

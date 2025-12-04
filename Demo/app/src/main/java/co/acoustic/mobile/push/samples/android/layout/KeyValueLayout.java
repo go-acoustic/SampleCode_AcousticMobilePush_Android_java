@@ -1,12 +1,12 @@
-/********************************************************************************************
- * Copyright (C) 2019 Acoustic, L.P. All rights reserved.
+/*
+ * Copyright (C) 2024 Acoustic, L.P. All rights reserved.
  *
  * NOTICE: This file contains material that is confidential and proprietary to
  * Acoustic, L.P. and/or other developers. No license is granted under any intellectual or
  * industrial property rights of Acoustic, L.P. except as may be provided in an agreement with
  * Acoustic, L.P. Any unauthorized copying or distribution of content from this file is
  * prohibited.
- ********************************************************************************************/
+ */
 package co.acoustic.mobile.push.samples.android.layout;
 
 import android.app.Activity;
@@ -153,8 +153,7 @@ public class KeyValueLayout implements CustomListAdapter.CustomItemLayout {
                             adapter.valueChanged(position, optionsValue.getValue());
                         }
                         lastChecked = true;
-
-                    } else if(!isChecked) {
+                    } else {
                         lastChecked = false;
                     }
                 }
@@ -193,9 +192,9 @@ public class KeyValueLayout implements CustomListAdapter.CustomItemLayout {
     }
 
     public static abstract class KeyValue<T> {
-        protected String key;
+        protected final String key;
         protected T value;
-        protected boolean extraLarge;
+        protected final boolean extraLarge;
 
         public KeyValue(String key, T value, boolean extraLarge) {
             this.key = key;
@@ -226,10 +225,10 @@ public class KeyValueLayout implements CustomListAdapter.CustomItemLayout {
 
 
     public static class KeyValueString extends KeyValue<String> {
-        private boolean editable;
+        private final boolean editable;
         private int inputType;
-        private String[] predefinedValues;
-        private int noValueIndex;
+        private final String[] predefinedValues;
+        private final int noValueIndex;
         private boolean force =false;
         private String forcedValue = null;
 
@@ -333,7 +332,7 @@ public class KeyValueLayout implements CustomListAdapter.CustomItemLayout {
 
     public static class KeyValueOptions extends KeyValue<String>{
         private int selectedIndex;
-        private String[] options;
+        private final String[] options;
 
         public KeyValueOptions(String key, String[] options, int selectedIndex) {
             super(key, options[selectedIndex]);

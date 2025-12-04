@@ -1,12 +1,12 @@
-/********************************************************************************************
- * Copyright (C) 2019 Acoustic, L.P. All rights reserved.
+/*
+ * Copyright (C) 2024 Acoustic, L.P. All rights reserved.
  *
  * NOTICE: This file contains material that is confidential and proprietary to
  * Acoustic, L.P. and/or other developers. No license is granted under any intellectual or
  * industrial property rights of Acoustic, L.P. except as may be provided in an agreement with
  * Acoustic, L.P. Any unauthorized copying or distribution of content from this file is
  * prohibited.
- ********************************************************************************************/
+ */
 package co.acoustic.mobile.push.samples.android;
 
 import android.os.Bundle;
@@ -109,21 +109,19 @@ public class AttributesSampleActivity extends ListSampleActivity {
             List<String> attributeKeys = new ArrayList<String>(1);
             attributeKeys.add(attribute.getKey());
             String action = attributeActions.getValue();
-            performAttributesAction(attributes, attributeKeys, action);
-        }
-    }
-
-    protected void performAttributesAction(List<Attribute> attributes, List<String> attributeKeys, String action) {
-        try {
-            if (resourcesHelper.getString("attribute_action_update").equals(action)) {
-                MceSdk.getQueuedAttributesClient().updateUserAttributes(getApplicationContext(), attributes);
-            } else if (resourcesHelper.getString("attribute_action_delete").equals(action)) {
-                MceSdk.getQueuedAttributesClient().deleteUserAttributes(getApplicationContext(), attributeKeys);
+            try {
+                performAttributesAction(attributes, attributeKeys, action);
+            } catch (JSONException e) {
+                throw new RuntimeException(e);
             }
-        } catch (JSONException jsone) {
-            Log.e(TAG, "Failed to send attributes");
         }
     }
 
-
+    protected void performAttributesAction(List<Attribute> attributes, List<String> attributeKeys, String action) throws JSONException {
+        if (resourcesHelper.getString("attribute_action_update").equals(action)) {
+            MceSdk.getQueuedAttributesClient().updateUserAttributes(getApplicationContext(), attributes);
+        } else if (resourcesHelper.getString("attribute_action_delete").equals(action)) {
+            MceSdk.getQueuedAttributesClient().deleteUserAttributes(getApplicationContext(), attributeKeys);
+        }
+    }
 }

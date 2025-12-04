@@ -14,19 +14,18 @@ buildscript {
     }
 
     dependencies {
-        classpath 'com.android.tools.build:gradle:7.4.2'
-        classpath 'me.tatarka:gradle-retrolambda:3.1.0'
-        classpath "com.google.gms:google-services:4.4.0"
-        classpath 'org.owasp:dependency-check-gradle:5.3.0'
+        classpath 'com.android.tools.build:gradle:8.13.1'
+        classpath 'me.tatarka:gradle-retrolambda:3.7.1'
+        classpath "com.google.gms:google-services:4.4.4"
+        classpath 'org.owasp:dependency-check-gradle:10.0.3'
         classpath 'org.sonarsource.scanner.gradle:sonarqube-gradle-plugin:3.3'
-        classpath "io.github.gradle-nexus:publish-plugin:1.1.0"
-        classpath "org.jacoco:org.jacoco.core:0.8.8"
+        classpath "org.jacoco:org.jacoco.core:0.8.14"
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
     }
 }
 plugins {
     id "org.jetbrains.kotlin.android" version "$kotlin_version" apply false
-    id "io.github.gradle-nexus.publish-plugin" version "1.1.0"
+    id "io.github.gradle-nexus.publish-plugin" version "2.0.0"
 }
 
 allprojects {
@@ -41,9 +40,9 @@ allprojects {
         // The following are only a few examples of the types of properties you can define.
         // Sdk and tools
         minSdkVersion = 21
-        targetSdkVersion = 34
-        compileSdkVersion = 34
-        buildToolsVersion = "34.0.0"
+        targetSdkVersion = 36
+        compileSdkVersion = 36
+        buildToolsVersion = "36.0.0"
 
         androidxLibVersion = "1.6.0"
         androidxLegacyLibVersion = "1.0.0"
@@ -51,7 +50,7 @@ allprojects {
 
         androidxTestRulesVersion = "1.4.0"
         androidxTestCoreVersion = '1.5.0'
-        androidxTestRunnerVersion = "1.4.0"
+        androidxTestRunnerVersion = "1.5.2"
         androidxTestJunitVersion = "1.1.5"
 
         kotlinCoreLibVersion = "1.7.0"
@@ -70,13 +69,13 @@ allprojects {
         mockitoVersion = "1.10.19"
         powerMockito = "1.6.6"
         hamcrestVersion = "1.3"
-        espressoVersion = "3.4.0"
+        espressoVersion = "3.5.1"
         mockitoAndroid = "5.5.0"
 
         // This version supports 21 minimal
         securityCryptoVersion = "1.1.0-alpha06"
 
         // Current version of sdk
-        mceVersion = "3.10.104-beta"
+        mceVersion = "3.10.107-beta"
     }
 }

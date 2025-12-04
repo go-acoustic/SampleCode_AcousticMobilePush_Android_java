@@ -1,12 +1,12 @@
-/********************************************************************************************
- * Copyright (C) 2019 Acoustic, L.P. All rights reserved.
+/*
+ * Copyright (C) 2024 Acoustic, L.P. All rights reserved.
  *
  * NOTICE: This file contains material that is confidential and proprietary to
  * Acoustic, L.P. and/or other developers. No license is granted under any intellectual or
  * industrial property rights of Acoustic, L.P. except as may be provided in an agreement with
  * Acoustic, L.P. Any unauthorized copying or distribution of content from this file is
  * prohibited.
- ********************************************************************************************/
+ */
 package co.acoustic.mobile.push.samples.android;
 
 import static co.acoustic.mobile.push.sdk.plugin.carousel.CarouselIterationOperation.DIALOG_MESSAGE;
@@ -35,7 +35,6 @@ import co.acoustic.mobile.push.sdk.api.OperationResult;
 import co.acoustic.mobile.push.sdk.api.message.MessageProcessor;
 import co.acoustic.mobile.push.sdk.api.message.MessageSync;
 import co.acoustic.mobile.push.sdk.api.registration.RegistrationDetails;
-import co.acoustic.mobile.push.sdk.notification.MceNotificationActionImpl;
 import co.acoustic.mobile.push.sdk.plugin.inapp.InAppManager;
 import co.acoustic.mobile.push.sdk.plugin.inapp.InAppMessageProcessor;
 import co.acoustic.mobile.push.sdk.plugin.inbox.InboxMessageProcessor;
@@ -139,7 +138,7 @@ public class MainSampleMenuActivity extends ListSampleActivity {
         } else if (position == SEND_TEST_EVENTS_INDEX) {
 
             RegistrationDetails registrationDetails = MceSdk.getRegistrationClient().getRegistrationDetails(getApplicationContext());
-            if (registrationDetails.getChannelId() == null || registrationDetails.getChannelId().length() == 0) {
+            if (registrationDetails.getChannelId() == null || registrationDetails.getChannelId().isEmpty()) {
                 Toast.makeText(MainSampleMenuActivity.this.getApplicationContext(), resourcesHelper.getString("no_sdk_reg_toast"), Toast.LENGTH_SHORT).show();
             } else {
                 Intent intent = new Intent();
@@ -148,7 +147,7 @@ public class MainSampleMenuActivity extends ListSampleActivity {
             }
         } else if (position == SEND_USER_ATTRIBUTES_INDEX) {
             RegistrationDetails registrationDetails = MceSdk.getRegistrationClient().getRegistrationDetails(getApplicationContext());
-            if (registrationDetails.getChannelId() == null || registrationDetails.getChannelId().length() == 0) {
+            if (registrationDetails.getChannelId() == null || registrationDetails.getChannelId().isEmpty()) {
                 Toast.makeText(MainSampleMenuActivity.this.getApplicationContext(), resourcesHelper.getString("no_sdk_reg_toast"), Toast.LENGTH_SHORT).show();
             } else {
                 Intent intent = new Intent();
@@ -199,7 +198,7 @@ public class MainSampleMenuActivity extends ListSampleActivity {
             });
         } else if (position == LOCATIONS_INDEX) {
             RegistrationDetails registrationDetails = MceSdk.getRegistrationClient().getRegistrationDetails(getApplicationContext());
-            if (registrationDetails.getChannelId() == null || registrationDetails.getChannelId().length() == 0) {
+            if (registrationDetails.getChannelId() == null || registrationDetails.getChannelId().isEmpty()) {
                 Toast.makeText(MainSampleMenuActivity.this.getApplicationContext(), resourcesHelper.getString("no_sdk_reg_toast"), Toast.LENGTH_SHORT).show();
             } else {
                 Intent intent = new Intent();
