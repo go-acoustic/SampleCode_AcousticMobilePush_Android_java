@@ -14,19 +14,13 @@ buildscript {
     }
 
     dependencies {
-        classpath 'com.android.tools.build:gradle:7.4.2'
-        classpath 'me.tatarka:gradle-retrolambda:3.1.0'
-        classpath "com.google.gms:google-services:4.4.0"
-        classpath 'org.owasp:dependency-check-gradle:5.3.0'
-        classpath 'org.sonarsource.scanner.gradle:sonarqube-gradle-plugin:3.3'
-        classpath "io.github.gradle-nexus:publish-plugin:1.1.0"
-        classpath "org.jacoco:org.jacoco.core:0.8.8"
+        classpath 'com.android.tools.build:gradle:8.13.1'
+        classpath "com.google.gms:google-services:4.4.4"
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
     }
 }
 plugins {
     id "org.jetbrains.kotlin.android" version "$kotlin_version" apply false
-    id "io.github.gradle-nexus.publish-plugin" version "1.1.0"
 }
 
 allprojects {
@@ -74,9 +68,9 @@ allprojects {
         mockitoAndroid = "5.5.0"
 
         // This version supports 21 minimal
-        securityCryptoVersion = "1.1.0-alpha06"
+        securityCryptoVersion = "1.1.0"
 
         // Current version of sdk
-        mceVersion = "3.10.111"
+        mceVersion = "3.10.116-beta"
     }
 }
