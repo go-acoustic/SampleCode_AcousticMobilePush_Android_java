@@ -114,14 +114,10 @@ public class AttributesSampleActivity extends ListSampleActivity {
     }
 
     protected void performAttributesAction(List<Attribute> attributes, List<String> attributeKeys, String action) {
-        try {
-            if (resourcesHelper.getString("attribute_action_update").equals(action)) {
-                MceSdk.getQueuedAttributesClient().updateUserAttributes(getApplicationContext(), attributes);
-            } else if (resourcesHelper.getString("attribute_action_delete").equals(action)) {
-                MceSdk.getQueuedAttributesClient().deleteUserAttributes(getApplicationContext(), attributeKeys);
-            }
-        } catch (JSONException jsone) {
-            Log.e(TAG, "Failed to send attributes");
+        if (resourcesHelper.getString("attribute_action_update").equals(action)) {
+            MceSdk.getQueuedAttributesClient().updateUserAttributes(getApplicationContext(), attributes);
+        } else if (resourcesHelper.getString("attribute_action_delete").equals(action)) {
+            MceSdk.getQueuedAttributesClient().deleteUserAttributes(getApplicationContext(), attributeKeys);
         }
     }
 

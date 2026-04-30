@@ -73,7 +73,7 @@ public class SampleApplication extends MceApplication {
     }
 
     @Override
-    protected MceSdkConfiguration getMceSdkConfiguration() {
+    public MceSdkConfiguration getMceSdkConfiguration() {
         if(READ_CONFIG_FROM_ASSETS) {
             return null;
         } else {
