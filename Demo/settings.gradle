@@ -12,6 +12,10 @@ dependencyResolutionManagement {
     repositories {
         google()
         mavenCentral()
+        maven {
+            url "https://raw.githubusercontent.com/go-acoustic/Android_Maven/master"
+            content { includeGroup "io.github.go-acoustic" }
+        }
         maven { url "https://jitpack.io" }
         maven {
             url "https://plugins.gradle.org/m2/"
